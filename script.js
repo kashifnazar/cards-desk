@@ -23,7 +23,7 @@ const drawCard = async () => {
   //random number between -45 and 45 for rotation
   const randomRotation = Math.floor(Math.random() * 91) - 45;
 
-  cardElement.style = `transform: rotate(${randomRotation}deg)`;
+  cardElement.style = `transform: rotate(${randomRotation}deg); transition: transform 1s;`;
   cardElement.className = 'card';
   cardElement.innerHTML = `<img src="${card.image}" alt="${card.value} of ${card.suit}">`;
   document.getElementById('card-container').appendChild(cardElement);
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
 document.getElementById('draw-button').addEventListener('click', drawCard);
 
 // Start over
-document.getElementById('start-over-button').addEventListener('click', () => {
+document.getElementById('deal-button').addEventListener('click', () => {
   document.getElementById('card-container').innerHTML = '';
   deck_id = null;
   shuffle();
